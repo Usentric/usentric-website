@@ -1,5 +1,5 @@
 import { Box, List, Typography, useMediaQuery } from '@mui/material';
-import CollapasbleInfoBox from '../shared/CollapsableInfoBox';
+import CollapasbleInfoBox from './shared/CollapsableInfoBox';
 import theme from '@/theme';
 
 const servicesData = [
@@ -37,7 +37,7 @@ const servicesData = [
 
 const WhatWeOffer = () => {
 
-
+    const isMdUp = useMediaQuery(theme.breakpoints.up('sm'))
     return (
         <>
             <Box sx={{
@@ -57,9 +57,16 @@ const WhatWeOffer = () => {
                     What we offer
                 </Typography>
             </Box>
-            < Box sx={{ mb: 4 }
-            }>
-                <List>
+            < Box sx={{
+            }} >
+                <List
+                    sx={{
+                        display: 'flex',
+                        flexDirection: isMdUp ? "row" : "column",
+                        flexWrap: 'wrap', // Ensures that items wrap to the next line if there's not enough space
+                        gap: 2, // Adds spacing between items, adjust as needed 
+                    }}
+                >
                     {
                         servicesData.map(service =>
                             <CollapasbleInfoBox key={service.Title} Icon={service.Icon} Title={service.Title} Body={service.Body} />

@@ -30,6 +30,11 @@ const HeroSection: React.FC = () => {
                         objectFit: 'cover', // Crop the image to cover the entire box
                         overflow: 'hidden'
                     },
+                    [theme.breakpoints.up('md')]: {
+                        width: "100%",
+                        objectFit: 'cover', // Crop the image to cover the entire box
+                        overflow: 'hidden'
+                    },
                     borderRadius: 2,
                 }}
             />
@@ -45,6 +50,15 @@ const HeroSection: React.FC = () => {
                         width: '90%',
                         fontSize: "48px",
                         fontWeight: 500,
+                    },
+                    [theme.breakpoints.up('md')]: {
+                        m: 'auto',
+                        maxWidth: '65%',
+                        fontSize: "56px",
+                        fontWeight: 500,
+                    },
+                    [theme.breakpoints.up('lg')]: {
+                        maxWidth: '60%',
                     },
                     position: 'absolute',
                     top: '50%',

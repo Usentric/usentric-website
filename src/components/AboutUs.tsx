@@ -29,16 +29,12 @@ const AboutUs = () => {
             </Box>
             <Box>
                 <Typography
+                    textAlign={"left"}
                     sx={{
+                        width: { md: "80%", lg: "55%"},
+                        fontSize: { xs: 24, sm: 46, md: 46 },
+                        fontWeight: 300,
                         color: 'rgba(255, 255, 255, 0.6)',
-                        [theme.breakpoints.up("xs")]: {
-                            fontSize: 24,
-                            fontWeight: 300,
-                        },
-                        [theme.breakpoints.up("sm")]: {
-                            fontSize: 46,
-                            fontWeight: 300,
-                        }
                     }}
                 >
                     We are a small tech firm driven by helping{' '}

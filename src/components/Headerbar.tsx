@@ -15,7 +15,9 @@ const HeaderBar: React.FC<HeaderProps> = ({ activeSection, onChipClick }) => {
 
     return (
         <AppBar >
-            <Toolbar sx={{ bgcolor: 'background.default', justifyContent: 'space-between' }}>
+            <Toolbar
+                disableGutters
+                sx={{ bgcolor: 'background.default', justifyContent: 'space-between', pl: {xs: 2, sm: 2, md: 10}, pr: {xs: 2, sm: 2, md: 10} }}>
                 <Box
                     display={"inline-flex"}
                     flexDirection={"row"}
@@ -41,20 +43,25 @@ const HeaderBar: React.FC<HeaderProps> = ({ activeSection, onChipClick }) => {
                     >
                         <Chip label="HOME"
                             onClick={() => onChipClick('homeRef')}
-                            color={activeSection === 'homeRef' ?  'default' : 'primary'} />
-                        <Chip label="OUR WORK"
-                            onClick={() => onChipClick('ourWorkRef')}
-                            color={activeSection === 'ourWorkRef' ?  'default' : 'primary'}
-                        />
+                            color={activeSection === 'homeRef' ? 'default' : 'primary'} />
                         <Chip label="ABOUT"
                             onClick={() => onChipClick('aboutUsRef')}
-                            color={activeSection === 'aboutUsRef' ?  'default' : 'primary'}
+                            color={activeSection === 'aboutUsRef' ? 'default' : 'primary'}
+                        />
+                        <Chip label="OUR WORK"
+                            onClick={() => onChipClick('ourWorkRef')}
+                            color={activeSection === 'ourWorkRef' ? 'default' : 'primary'}
                         />
                     </Box>
                 }
                 <Button
-                onClick={() => onChipClick('contactUsSection')} 
-                sx={{ bgcolor: 'text.primary', borderRadius: '24px', width: theme => theme.spacing(17), height: theme => theme.spacing(4) }}>
+                    onClick={() => onChipClick('contactUsSection')}
+                    sx={{ bgcolor: 'text.primary', borderRadius: '24px', width: theme => theme.spacing(17), height: theme => theme.spacing(4),
+                        "&:hover": {
+                            bgcolor: 'text.primary'
+                        }
+
+                     }}>
                     <Typography color={"#03070D"} fontSize={14} fontWeight={600} component="div">
                         CONTACT US
                     </Typography>

@@ -8,10 +8,10 @@ import HowWeWorkSection from '@/components/HowWeWorkSection';
 import WorkCarousel from '@/components/WorkCarousel';
 import ConctactUsCard from '@/components/ContactUsCard';
 import theme from '@/theme';
-import HeaderBar from '@/components/shared/headerbar';
+import HeaderBar from '@/components/Headerbar';
 import HeroSection from '@/components/HeroSection';
 import AboutUs from '@/components/AboutUs';
-import WhatWeOffer from '@/components/Services/WhatWeOffer';
+import WhatWeOffer from '@/components/WhatWeOffer';
 
 export default function Home() {
 
@@ -28,7 +28,25 @@ export default function Home() {
       ourWorkRef: ourWorkRef,
       contactUsSection: contactUsRef,
     };
-    refs[section].current?.scrollIntoView({ behavior: 'smooth' });
+  
+    const headerHeight = 64; // Replace with your header's height
+    const marginOffsets: { [key: string]: number } = {
+      homeRef: 10, // The margin you gave to homeRef
+      aboutUsRef: 10,
+      ourWorkRef: 10,
+      contactUsSection: 10,
+    };
+  
+    const targetRef = refs[section];
+    if (targetRef.current) {
+      const elementTop = targetRef.current.getBoundingClientRect().top;
+      const offsetPosition = window.scrollY + elementTop - headerHeight - marginOffsets[section];
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   };
 
   useEffect(() => {
@@ -48,7 +66,7 @@ export default function Home() {
 
     const observer = new IntersectionObserver(observerCallback, options);
 
-    const sections = [homeRef, aboutUsRef, ourWorkRef];
+    const sections = [homeRef, aboutUsRef, ourWorkRef, contactUsRef];
     sections.forEach((section) => {
       if (section.current) observer.observe(section.current);
     });
@@ -63,22 +81,33 @@ export default function Home() {
   return (
     <>
       <HeaderBar activeSection={activeSection} onChipClick={handleChipClick} />
-      <Box m={2}
+      <Box 
+        sx={{
+          m: { xs: 2, sm: 2, md: 10 },
+          mt: { xs: 5, sm: 10, md: 15}
+        }}
         id="homeRef"
         ref={homeRef}
       >
         <HeroSection />
       </Box>
-      <Box m={2}
-        id="aboutUsRef"
-        ref={aboutUsRef}
+      <Box sx={{
+        m: { xs: 2, sm: 2, md: 10 }
+      }}
       >
         <AboutUs />
       </Box >
-      <Box m={2}>
+      <Box sx={{
+        m: { xs: 2, sm: 2, md: 10 }
+      }}
+        id="aboutUsRef"
+        ref={aboutUsRef}
+      >
         <WhatWeOffer />
       </Box>
-      <Box m={2}
+      <Box sx={{
+        m: { xs: 2, sm: 2, md: 10 }
+      }}
         id="ourWorkRef"
         ref={ourWorkRef}
       >
@@ -88,8 +117,10 @@ export default function Home() {
       >
         <HowWeWorkSection />
       </Box>
-      <Box m={2}
-      mb={"50px"}
+      <Box sx={{
+        m: { xs: 2, sm: 2, md: 10 }
+      }}
+        mb={"50px"}
         id="contactUsSection"
         ref={contactUsRef}
       >

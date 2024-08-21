@@ -24,6 +24,9 @@ const CollapasbleInfoBox = ({ Icon, Title, Body }: CollapasbleInfoBoxProps) => {
         <Box key={Title} border={1} padding={2}
             mb={2}
             borderRadius={2} borderColor={"#BFBFBF80"}
+            sx={{
+                width: { md: "49%", lg: "49%" }
+            }}
         >
             <ListItem>
                 <ListItemIcon
@@ -67,6 +70,7 @@ const CollapasbleInfoBox = ({ Icon, Title, Body }: CollapasbleInfoBoxProps) => {
                     <Box
                         m={2}
                         mt={0}
+                        
                     >
                         <Typography variant="body1" color={"#FFFFFF99"}
                             sx={{
