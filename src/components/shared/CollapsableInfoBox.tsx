@@ -6,9 +6,10 @@ import { ReactNode, useState } from "react"
 interface CollapasbleInfoBoxProps {
     Icon: string,
     Title: string,
-    Body: string
+    Body: string,
+    url: string
 }
-const CollapasbleInfoBox = ({ Icon, Title, Body }: CollapasbleInfoBoxProps) => {
+const CollapasbleInfoBox = ({ Icon, Title, Body, url }: CollapasbleInfoBoxProps) => {
     const [open, setOpen] = useState(false)
 
     const handleClick = () => {
@@ -25,31 +26,58 @@ const CollapasbleInfoBox = ({ Icon, Title, Body }: CollapasbleInfoBoxProps) => {
             mb={2}
             borderRadius={2} borderColor={"#BFBFBF80"}
             sx={{
-                width: { md: "49%", lg: "49%" }
+                width: { md: "49%", lg: "49%" },
+                textDecoration: 'none',
+                color: 'inherit',
+                // cursor: 'pointer',
             }}
+        // component="a"
+        // href={url}
         >
-            <ListItem>
+            <ListItem
+            >
                 <ListItemIcon
                     sx={{
                         width: '100%'
                     }}
                 >
-                    <img src={Icon} alt={`${Title} icon`} style={{ width: '28px', height: '28px' }} />
+                    <Box
+                        component="a"
+                        href={url}
+                        sx={{
+                            textDecoration: 'none',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        <img src={Icon} alt={`${Title} icon`} style={{ width: '28px', height: '28px' }} />
+                    </Box>
                 </ListItemIcon>
             </ListItem>
             <ListItem>
                 <ListItemText
                     disableTypography
                     primary={
-                        <Typography color="text.primary" fontSize={"20px"} fontWeight={600}>
-                            {Title}
-                        </Typography>
+                        <Box
+                            component="a"
+                            href={url}
+                            sx={{
+                                textDecoration: '2px underline white',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            <Typography color="text.primary" fontSize={"20px"} fontWeight={600}>
+                                {Title}
+                            </Typography>
+                        </Box>
                     }
                 />
                 {
                     notSmallScreen &&
                     <ListItemSecondaryAction
                         onClick={handleClick}
+                        sx={{
+                            cursor: 'pointer',
+                        }}
                     >
                         {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
                     </ListItemSecondaryAction>
@@ -70,7 +98,7 @@ const CollapasbleInfoBox = ({ Icon, Title, Body }: CollapasbleInfoBoxProps) => {
                     <Box
                         m={2}
                         mt={0}
-                        
+
                     >
                         <Typography variant="body1" color={"#FFFFFF99"}
                             sx={{
@@ -79,7 +107,7 @@ const CollapasbleInfoBox = ({ Icon, Title, Body }: CollapasbleInfoBoxProps) => {
                                     fontWeight: 400,
                                 }
                             }}
-                        
+
                         >
                             {Body}
                         </Typography>

@@ -28,7 +28,7 @@ export default function Home() {
       ourWorkRef: ourWorkRef,
       contactUsSection: contactUsRef,
     };
-  
+
     const headerHeight = 64; // Replace with your header's height
     const marginOffsets: { [key: string]: number } = {
       homeRef: 10, // The margin you gave to homeRef
@@ -36,12 +36,12 @@ export default function Home() {
       ourWorkRef: 10,
       contactUsSection: 10,
     };
-  
+
     const targetRef = refs[section];
     if (targetRef.current) {
       const elementTop = targetRef.current.getBoundingClientRect().top;
       const offsetPosition = window.scrollY + elementTop - headerHeight - marginOffsets[section];
-  
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth',
@@ -79,12 +79,16 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <Box
+      sx={{
+        maxWidth: { xs: '400px', sm: '800px', md: '1100px', lg: '1500px' },
+      }}
+    >
       <HeaderBar activeSection={activeSection} onChipClick={handleChipClick} />
-      <Box 
+      <Box
         sx={{
           m: { xs: 2, sm: 2, md: 10 },
-          mt: { xs: 5, sm: 10, md: 15}
+          mt: { xs: 5, sm: 10, md: 15 }
         }}
         id="homeRef"
         ref={homeRef}
@@ -126,6 +130,6 @@ export default function Home() {
       >
         <ConctactUsCard />
       </Box>
-    </>
+    </Box>
   );
 }

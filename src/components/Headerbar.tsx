@@ -17,21 +17,23 @@ const HeaderBar: React.FC<HeaderProps> = ({ activeSection, onChipClick }) => {
         <AppBar >
             <Toolbar
                 disableGutters
-                sx={{ bgcolor: 'background.default', justifyContent: 'space-between', pl: {xs: 2, sm: 2, md: 10}, pr: {xs: 2, sm: 2, md: 10} }}>
+                sx={{ bgcolor: 'background.default', justifyContent: 'space-between', pl: { xs: 2, sm: 2, md: 10 }, pr: { xs: 2, sm: 2, md: 10 } }}>
                 <Box
-                    display={"inline-flex"}
-                    flexDirection={"row"}
+                    component="a"
+                    href="/"
+                    display="inline-flex"
+                    flexDirection="row"
+                    sx={{
+                        textDecoration: 'none',
+                        color: 'inherit',
+                        cursor: 'pointer',
+                    }}
                 >
-                    <Box
-                        m={1}
-                    >
-                        <Box component={"img"} src="/usentric.svg" alt="Usentric Icon" width={24}
-                        />
+                    <Box m={1}>
+                        <Box component="img" src="/usentric.svg" alt="Usentric Icon" width={24} />
                     </Box>
-                    <Box
-                        m={1}
-                    >
-                        <Typography variant="h6" component="div" fontSize={22} fontWeight={600} >
+                    <Box m={1}>
+                        <Typography variant="h6" component="div" fontSize={22} fontWeight={600}>
                             Usentric
                         </Typography>
                     </Box>
@@ -56,12 +58,13 @@ const HeaderBar: React.FC<HeaderProps> = ({ activeSection, onChipClick }) => {
                 }
                 <Button
                     onClick={() => onChipClick('contactUsSection')}
-                    sx={{ bgcolor: 'text.primary', borderRadius: '24px', width: theme => theme.spacing(17), height: theme => theme.spacing(4),
+                    sx={{
+                        bgcolor: 'text.primary', borderRadius: '24px', width: theme => theme.spacing(17), height: theme => theme.spacing(4),
                         "&:hover": {
                             bgcolor: 'text.primary'
                         }
 
-                     }}>
+                    }}>
                     <Typography color={"#03070D"} fontSize={14} fontWeight={600} component="div">
                         CONTACT US
                     </Typography>

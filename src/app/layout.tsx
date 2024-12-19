@@ -29,7 +29,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <body style={{ margin: '0' }} className={inter.className}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Box sx={{ backgroundColor: 'background.default', color: 'text.primary', minHeight: '100vh' }}>
+          <Box sx={{ backgroundColor: 'background.default', color: 'text.primary', minHeight: '100vh', display: 'flex', justifyContent: 'center' }}>
             {children}
           </Box>
         </ThemeProvider>
