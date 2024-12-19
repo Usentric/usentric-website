@@ -1,7 +1,7 @@
 import theme from "@/theme"
-import { KeyboardArrowDown, KeyboardArrowRight, KeyboardArrowUp } from "@mui/icons-material"
+import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material"
 import { Box, Collapse, ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, Typography, useMediaQuery } from "@mui/material"
-import { ReactNode, useState } from "react"
+import { useState } from "react"
 
 interface CollapasbleInfoBoxProps {
     Icon: string,
@@ -17,8 +17,6 @@ const CollapasbleInfoBox = ({ Icon, Title, Body, url }: CollapasbleInfoBoxProps)
     }
 
     const notSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-    const notMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
-    const notLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
 
     return (
@@ -31,8 +29,6 @@ const CollapasbleInfoBox = ({ Icon, Title, Body, url }: CollapasbleInfoBoxProps)
                 color: 'inherit',
                 // cursor: 'pointer',
             }}
-        // component="a"
-        // href={url}
         >
             <ListItem
             >

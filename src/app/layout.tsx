@@ -1,12 +1,9 @@
 
 import { ReactNode } from 'react';
-import { AppBar, Toolbar, Typography, Container, Button, Box, ThemeProvider, CssBaseline } from '@mui/material';
-import Link from 'next/link';
+import { Box, ThemeProvider, CssBaseline } from '@mui/material';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google'
 import theme from '../theme';
-import Image from 'next/image';
-import HeaderBar from '@/components/Headerbar';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +13,7 @@ export const metadata: Metadata = {
   icons: { icon: "/usentric.svg" }
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }: Readonly<{ children: ReactNode }>) {
   
   return (
     <html lang="en">

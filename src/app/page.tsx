@@ -1,13 +1,9 @@
 "use client"
-import { Box, Typography, Button, Grid, Card, CardContent, CardMedia, List, ListItem, Collapse, ListItemSecondaryAction, ListItemIcon } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import MonitorIcon from '@mui/icons-material/Monitor';
+import { Box } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 import HowWeWorkSection from '@/components/HowWeWorkSection';
 import WorkCarousel from '@/components/WorkCarousel';
 import ConctactUsCard from '@/components/ContactUsCard';
-import theme from '@/theme';
 import HeaderBar from '@/components/Headerbar';
 import HeroSection from '@/components/HeroSection';
 import AboutUs from '@/components/AboutUs';

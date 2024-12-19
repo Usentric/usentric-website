@@ -1,9 +1,5 @@
-"use client"
-
 import theme from "@/theme"
-import { AppBar, Box, Button, Chip, Link, Stack, Toolbar, Typography, useMediaQuery } from "@mui/material"
-import Image from "next/image"
-import { useEffect, useState } from "react"
+import { AppBar, Box, Button, Chip, Toolbar, Typography, useMediaQuery } from "@mui/material"
 
 interface HeaderProps {
     activeSection: string;
