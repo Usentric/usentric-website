@@ -47,24 +47,31 @@ const ConctactUsCard = () => {
                     >
                         Contact Us
                     </Typography>
-                    <Typography color={"#FFFFFF"}
-                        mb={2}
+                    <Typography
                         sx={{
+                            color: 'rgba(255, 255, 255, 0.6)',
                             [theme.breakpoints.up('xs')]: {
                                 fontSize: 24,
-                                fontWeight: 100,
+                                fontWeight: 500,
                             },
                             [theme.breakpoints.up('sm')]: {
                                 fontSize: 46,
-                                fontWeight: 100,
+                                fontWeight: 300,
                             },
                         }}
                     >
-                        We serve a wide range of clients across a wide range of industries.
+                        We serve a wide{' '}
+                        <Box component="span" sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                            range of clients
+                        </Box>
+                        {' '}across a wide{' '}
+                        <Box component="span" sx={{ fontWeight: 'bold', color: '#ffffff' }}>
+                            range of industries.
+                        </Box>
                     </Typography>
                     <Typography color={"#FFFFFF99"}
                         sx={{
-                            width: {lg: '85%'},
+                            width: { lg: '85%' },
                             [theme.breakpoints.up('xs')]: {
                                 fontSize: 16,
                                 fontWeight: 400,

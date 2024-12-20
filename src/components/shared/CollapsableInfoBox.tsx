@@ -54,11 +54,11 @@ const CollapasbleInfoBox = ({ Icon, Title, Body, url }: CollapasbleInfoBoxProps)
                     disableTypography
                     primary={
                         <Box
-                            component="a"
-                            href={url}
+                            component={url != "" ? "a" : "div"}
+                            href={url != "" ? url : undefined}
                             sx={{
-                                textDecoration: '2px underline white',
-                                cursor: 'pointer',
+                                textDecoration: url ? '2px underline white' : 'none',
+                                cursor: url ? 'pointer' : 'default',
                             }}
                         >
                             <Typography color="text.primary" fontSize={"20px"} fontWeight={600}>

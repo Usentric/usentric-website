@@ -116,17 +116,6 @@ export default function IndividualPage({ headerInfo, bodyInfoData, serviceOfferi
                     {/* Page Title visible on large screens, top of page */}
                     <Box
                         sx={{
-                            display: { xs: 'none', md: 'flex' },
-                            justifyContent: 'center',
-                            mb: 4
-                        }}
-                    >
-                        <Typography variant='h6'>
-                            {headerInfo.pageTitle}
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
                             display: 'flex',
                             flexDirection: { xs: 'column-reverse', md: 'row' },
                             gap: { xs: 5, md: 10 },

@@ -41,10 +41,10 @@ const WorkCarousel = () => {
             }}
             >
                 <Typography
-                    fontSize={16}
+                    fontSize={20}
                     fontWeight={400}
                     sx={{
-                        color: 'text.primary'
+                        color: '#FFFFFF99'
                     }}
                 >
                     Our Work
@@ -67,12 +67,12 @@ const WorkCarousel = () => {
                         },
                         [theme.breakpoints.up('sm')]: {
                             fontSize: 46,
-                            fontWeight: 100,
+                            fontWeight: 300,
                         },
                         [theme.breakpoints.up('md')]: {
                             width: '65%',
                             fontSize: 46,
-                            fontWeight: 100,
+                            fontWeight: 300,
                         }
                     }}
                 >
