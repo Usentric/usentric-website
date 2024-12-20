@@ -32,21 +32,21 @@ interface IndividualPageProps {
 }
 
 export default function IndividualPage({ headerInfo, bodyInfoData, serviceOfferingData }: IndividualPageProps) {
-    const homeRef = useRef<HTMLDivElement | null>(null);
-    const aboutUsRef = useRef<HTMLDivElement | null>(null);
-    const ourWorkRef = useRef<HTMLDivElement | null>(null);
-    const contactUsRef = useRef<HTMLDivElement | null>(null);
-
+    const homeRef = useRef<HTMLDivElement>(null);
+    const aboutUsRef = useRef<HTMLDivElement>(null);
+    const ourWorkRef = useRef<HTMLDivElement>(null);
+    const contactUsRef = useRef<HTMLDivElement>(null);
     const [activeSection, setActiveSection] = useState<string>('homeRef');
 
+
+
     const handleChipClick = (section: string) => {
-        const refs: { [key: string]: React.RefObject<HTMLDivElement> } = {
+        const refs: { [key: string]: React.RefObject<HTMLDivElement | null> } = {
             homeRef: homeRef,
             aboutUsRef: aboutUsRef,
             ourWorkRef: ourWorkRef,
             contactUsSection: contactUsRef,
-
-        };
+          };
 
         const headerHeight = 64;
         const marginOffsets: { [key: string]: number } = {

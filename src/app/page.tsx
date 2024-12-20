@@ -18,7 +18,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('homeRef');
 
   const handleChipClick = (section: string) => {
-    const refs: { [key: string]: React.RefObject<HTMLDivElement> } = {
+    const refs: { [key: string]: React.RefObject<HTMLDivElement | null> } = {
       homeRef: homeRef,
       aboutUsRef: aboutUsRef,
       ourWorkRef: ourWorkRef,
