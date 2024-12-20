@@ -140,7 +140,7 @@ export default function IndividualPage({ headerInfo, bodyInfoData, serviceOfferi
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: '25px',
-                                width: {md: "50%" }
+                                width: { md: "50%" }
                             }}
                         >
                             <Typography
@@ -164,41 +164,57 @@ export default function IndividualPage({ headerInfo, bodyInfoData, serviceOfferi
 
                         {/* Image Container */}
                         <Box
+                            component="img"
+                            src={headerInfo.homeImgSrc}
+                            alt="Hero image showing hands"
                             sx={{
-                                width: { xs: "100%", sm: "100%", md: "550px" },
-                                height: { xs: 250, sm: 400, md: 500 },
-                                borderRadius: "16px",
-                                backgroundImage: `url(${headerInfo.homeImgSrc})`,
-                                backgroundPosition: "center",
-                                backgroundSize: "cover",
-                                opacity: 0.7,
-                                position: 'relative', // enable absolute positioning within
+                                [theme.breakpoints.up('xs')]: {
+                                    height: '350px',
+                                    objectFit: 'cover', // Crop the image to cover the entire box
+                                    objectPosition: 'top', // Center the crop area, can also be top, bottom, left, right
+                                    opacity: .60
+                                },
+                                [theme.breakpoints.up('sm')]: {
+                                    width: "100%",
+                                    maxHeight: '550px',
+                                    objectFit: 'cover', // Crop the image to cover the entire box
+                                    overflow: 'hidden'
+                                },
+                                [theme.breakpoints.up('md')]: {
+                                    width: "50%",
+                                    objectFit: 'cover', // Crop the image to cover the entire box
+                                    overflow: 'hidden'
+                                },
+                                borderRadius: 2,
+                            }}
+                        />
+                        <Typography
+                            p={1}
+                            sx={{
+                                [theme.breakpoints.up('xs')]: {
+                                    width: '100%',
+                                    fontSize: 24,
+                                    fontWeight: 500,
+                                    top: '25%',
+                                },
+                                [theme.breakpoints.up('sm')]: {
+                                    width: '90%',
+                                    fontSize: "48px",
+                                    fontWeight: 500,
+                                    top: '28%'
+                                },
+                                [theme.breakpoints.up('md')]: {
+                                    display: "None",
+                                },
+                                position: 'absolute',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                textAlign: 'center',
+                                color: 'text.primary'
                             }}
                         >
-                            {/* Page Title overlay ONLY on small screens */}
-                            <Box
-                                sx={{
-                                    display: { xs: 'flex', md: 'none' }, // visible on small, hidden on large
-                                    position: "absolute",
-                                    top: "50%",
-                                    left: "50%",
-                                    transform: "translate(-50%, -50%)",
-                                    textAlign: "center",
-                                    zIndex: 1,
-                                    justifyContent: 'center',
-                                }}
-                            >
-                                <Typography
-                                    variant='h6'
-                                    sx={{
-                                        fontSize: { xs: "40px", sm: "56px" },
-                                        color: "black"
-                                    }}
-                                >
-                                    {headerInfo.pageTitle}
-                                </Typography>
-                            </Box>
-                        </Box>
+                            {headerInfo.pageTitle}
+                        </Typography>
                     </Box>
                 </Box>
                 <Box

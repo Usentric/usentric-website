@@ -94,11 +94,11 @@ const WorkCarousel = () => {
                             }
                         }}>
 
-                        <Button sx={{ m: 2, bgcolor: 'text.primary', borderRadius: '24px', width: theme => theme.spacing(17), height: theme => theme.spacing(4) }}>
+                        {/* <Button sx={{ m: 2, bgcolor: 'text.primary', borderRadius: '24px', width: theme => theme.spacing(17), height: theme => theme.spacing(4) }}>
                             <Typography color={"#03070D"} fontSize={14} fontWeight={600} component="div">
                                 VIEW WORK
                             </Typography>
-                        </Button>
+                        </Button> */}
                     </Box>
                 }
             </Box >
